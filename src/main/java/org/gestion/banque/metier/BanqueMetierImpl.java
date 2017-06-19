@@ -14,6 +14,7 @@ import org.gestion.banque.entities.Retrait;
 import org.gestion.banque.entities.Versement;
 
 import com.mysql.jdbc.log.Log;
+import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 public class BanqueMetierImpl implements IBanqueMetier{
@@ -25,6 +26,7 @@ public class BanqueMetierImpl implements IBanqueMetier{
 	}
 	
 	@Override
+	
 	public Client addClient(Client c) {
 		// TODO Auto-generated method stub
 		return dao.addClient(c);
