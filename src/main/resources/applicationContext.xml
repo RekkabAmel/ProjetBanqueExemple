@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:context="http://www.springframework.org/schema/context"
+       
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+http://www.springframework.org/schema/context/spring-context.xsd"
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 	<bean id="id" class="org.gestion.banque.dao.BanqueDaoImpl"></bean>
 	<bean id="metier" class="org.gestion.banque.metier.BanqueMetierImpl">
 		<property name="dao" ref="dao"></property>
@@ -12,4 +20,23 @@
 		<property name="username" value="root"></property>
 		<property name="password" value=""></property>
 	</bean>
+	<bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+		<property name="persistenceXmlLocations">
+		<list>
+		<value>Classpath*:META-INF/persistence.xml</value>
+		</list>
+		</property>
+		<property name="defaultDataSource" ref="dataSource"></property>
+	</bean>
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	<property name="persistenceUnitManager" ref="persistenceUnitManager"></property>
+	<property name="persistenceUnitName" value="MY_P_U"></property>
+	</bean>
+	<bean id="transactionManger"
+		class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<context:annotation-config></context:annotation-config>
+
 </beans>
