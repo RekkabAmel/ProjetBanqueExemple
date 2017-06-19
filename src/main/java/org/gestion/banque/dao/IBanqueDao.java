@@ -12,9 +12,9 @@ import org.gestion.banque.entities.Operation;
 
 import com.mysql.jdbc.log.Log;
 
-public interface IBannqueDao {
+public interface IBanqueDao {
 	public Client addClient(Client c);
-	public Employe addEmploye(Employe e, long codeSup);
+	public Employe addEmploye(Employe e, Long codeSup);
 	public Groupe addGroupe(Groupe g);
 	public void addEmployeToGroupe(Log codeEmp, Long codeGr);
 	public Compte addCompte(Compte cp,Long codeCli, Long codeEmp);
