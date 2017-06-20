@@ -3,23 +3,27 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
-        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:context="http://www.springframework.org/schema/context"
        
        xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
-http://www.springframework.org/schema/context/spring-context.xsd"
-http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
-	<bean id="id" class="org.gestion.banque.dao.BanqueDaoImpl"></bean>
+http://www.springframework.org/schema/context/spring-context.xsd">
+	<bean id="dao" class="org.gestion.banque.dao.BanqueDaoImpl"></bean>
 	<bean id="metier" class="org.gestion.banque.metier.BanqueMetierImpl">
 		<property name="dao" ref="dao"></property>
 	</bean>
+	
+	<!--  
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url"  value="jdbc:mysql://localhost:3306/banques5"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value=""></property>
 	</bean>
+	-->
+	
 	<bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
 		<property name="persistenceXmlLocations">
 		<list>
