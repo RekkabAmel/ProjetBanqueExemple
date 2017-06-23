@@ -45,7 +45,7 @@ public class BanqueMetierImpl implements IBanqueMetier{
 	}
 
 	@Override
-	public void addEmployeToGroupe(Log codeEmp, Long codeGr) {
+	public void addEmployeToGroupe(Long codeEmp, Long codeGr) {
 		dao.addEmployeToGroupe(codeEmp, codeGr);	
 	}
 

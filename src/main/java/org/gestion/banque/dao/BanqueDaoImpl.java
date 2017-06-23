@@ -40,8 +40,7 @@ public class BanqueDaoImpl implements  IBanqueDao {
 		return g;
 	}
 
-	@Override
-	public void addEmployeToGroupe(Log codeEmp, Long codeGr) {
+	public void addEmployeToGroupe1(Long codeEmp, Long codeGr) {
 		Employe e = em.find(Employe.class, codeEmp);
 		Groupe g = em.find(Groupe.class, codeGr);
 		e.getGroupes().add(g);
@@ -128,6 +127,12 @@ public class BanqueDaoImpl implements  IBanqueDao {
 		Query req = em.createQuery("select e from Employe e where e.groupe.codeGroupe =: x");
 		req.setParameter("X", codeGr);
 		return req.getResultList();	
+	}
+
+	@Override
+	public void addEmployeToGroupe(Long codeEmp, Long codeGr) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

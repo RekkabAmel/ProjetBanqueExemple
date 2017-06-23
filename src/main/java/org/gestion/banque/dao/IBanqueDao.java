@@ -16,7 +16,7 @@ public interface IBanqueDao {
 	public Client addClient(Client c);
 	public Employe addEmploye(Employe e, Long codeSup);
 	public Groupe addGroupe(Groupe g);
-	public void addEmployeToGroupe(Log codeEmp, Long codeGr);
+	public void addEmployeToGroupe(Long codeEmp, Long codeGr);
 	public Compte addCompte(Compte cp,Long codeCli, Long codeEmp);
 	public Operation addOperation(Operation op,String codeCpte, Long codeEmp);
 	//public void versement(String codeCopte, double mt, Long codeEmp );

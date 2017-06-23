@@ -15,7 +15,7 @@ public interface IBanqueMetier {
 	public Client addClient(Client c);
 	public Employe addEmploye(Employe e, Long codeSup);
 	public Groupe addGroupe(Groupe g);
-	public void addEmployeToGroupe(Log codeEmp, Long codeGr);
+	public void addEmployeToGroupe(Long codeEmp, Long codeGr);
 	public Compte addCompte(Compte cp,Long codeCli, Long codeEmp);
 	public void verser(double mt, String cpte, Long codeEmp );
 	public void retirer(double mt, String cpte, Long codeEmp);

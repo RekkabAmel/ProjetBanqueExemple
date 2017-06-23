@@ -23,7 +23,9 @@ public class Client implements Serializable {
 	private Long codeClient;
 	private String nomClient;
 	private String adresseClient;
-	@OneToMany(mappedBy="Client",fetch=FetchType.LAZY)
+	
+	// commentaire "@OneToMany(mappedBy="clients",fetch=FetchType.LAZY)"
+	
 	private Collection<Compte> Comptes;
 	public Long getCodeClient() {
 		return codeClient;
