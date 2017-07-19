@@ -14,6 +14,7 @@ import org.gestion.banque.entities.Operation;
 
 import com.mysql.jdbc.log.Log;
 
+@SuppressWarnings("unused")
 public class BanqueDaoImpl implements  IBanqueDao {
 	@PersistenceContext
 	private EntityManager em;
@@ -75,6 +76,7 @@ public class BanqueDaoImpl implements  IBanqueDao {
 		return cp;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Operation> consulterOperations(String codeCpte) {
 		Query req = em.createQuery("select o from Operation o throw o.compte.codeCompte=:x");
@@ -89,6 +91,7 @@ public class BanqueDaoImpl implements  IBanqueDao {
 		return c;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Client> consulterClients(String mc) {
 		Query req = em.createQuery("select c from Client c where c.nomClient like : x");
@@ -96,6 +99,7 @@ public class BanqueDaoImpl implements  IBanqueDao {
 		return req.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Compte> getComptesByClient(Long codeCli) {
 		Query req = em.createQuery("select c from Compte c where c.Client.codeClient =: x");
@@ -103,6 +107,7 @@ public class BanqueDaoImpl implements  IBanqueDao {
 		return req.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Compte> getComptesByEmploye(Long codeEmp) {
 		Query req = em.createQuery("select c from Compte c where c.employe.codeEmploye =: x");
@@ -110,18 +115,21 @@ public class BanqueDaoImpl implements  IBanqueDao {
 		return req.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employe> getEmployes() {
 		Query req = em.createQuery("select e from Employe e");
 		return req.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Groupe> getGroupes() {
 		Query req = em.createQuery("select g from Groupe g");
 		return req.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Employe> getEmployesByGroupe(Long codeGr) {
 		Query req = em.createQuery("select e from Employe e where e.groupe.codeGroupe =: x");

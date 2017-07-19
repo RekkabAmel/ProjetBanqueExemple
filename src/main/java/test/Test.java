@@ -1,7 +1,10 @@
 package test;
 
-import org.gestion.banque.entities.Client;
+import java.util.Date;
 
+import org.gestion.banque.entities.Client;
+import org.gestion.banque.entities.CompteCourant;
+import org.gestion.banque.entities.CompteEpargne;
 import org.gestion.banque.entities.Employe;
 import org.gestion.banque.entities.Groupe;
 import org.gestion.banque.metier.IBanqueMetier;
@@ -22,5 +25,13 @@ public class Test {
 		metier.addEmployeToGroupe(1L, 1L);
 		metier.addEmployeToGroupe(2L, 2L);
 		metier.addEmployeToGroupe(3L, 2L);
+		
+		metier.addCompte(new CompteCourant("CC1",(java.sql.Date) new Date(),9000,8000), 1L, 2L);
+		metier.addCompte(new CompteEpargne("CE1",(java.sql.Date) new Date(),40000, 5.5), 2L, 2L);
+		
+		metier.verser(5000, "CC1", 2L);
+		metier.retirer(6000, "CC1", 2L);
+		
+		metier.virement(4000, "CC1", "CE1", 1L);
 	}
 }

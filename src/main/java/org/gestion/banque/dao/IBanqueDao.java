@@ -12,6 +12,7 @@ import org.gestion.banque.entities.Operation;
 
 import com.mysql.jdbc.log.Log;
 
+@SuppressWarnings("unused")
 public interface IBanqueDao {
 	public Client addClient(Client c);
 	public Employe addEmploye(Employe e, Long codeSup);

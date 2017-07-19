@@ -12,6 +12,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@SuppressWarnings("serial")
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public class Operation implements Serializable {

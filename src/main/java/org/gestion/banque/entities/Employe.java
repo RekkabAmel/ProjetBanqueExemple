@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+@SuppressWarnings("serial")
 @Entity
 public class Employe implements Serializable {
 	@Id

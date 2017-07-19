@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+@SuppressWarnings("serial")
 @Entity
 @DiscriminatorValue("V")
 public class Versement extends Operation{

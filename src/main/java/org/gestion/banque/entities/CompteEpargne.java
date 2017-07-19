@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+@SuppressWarnings("serial")
 @Entity
 @DiscriminatorValue("CE")
 public class CompteEpargne extends Compte{

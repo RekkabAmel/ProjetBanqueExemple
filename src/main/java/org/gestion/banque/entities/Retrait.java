@@ -5,6 +5,7 @@ import java.sql.Date;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
+@SuppressWarnings("serial")
 @Entity
 @DiscriminatorValue(value="R")
 public class Retrait extends Operation {

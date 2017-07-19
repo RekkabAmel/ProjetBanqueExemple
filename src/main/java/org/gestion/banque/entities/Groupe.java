@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+@SuppressWarnings("serial")
 @Entity
 public class Groupe implements Serializable{
 	@Id

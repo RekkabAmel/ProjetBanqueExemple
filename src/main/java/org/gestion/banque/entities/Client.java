@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+@SuppressWarnings({ "unused", "serial" })
 @Entity 
 @Table(name="CLIENTS")
 
